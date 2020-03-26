@@ -2,7 +2,7 @@
 
 This project is an example of contact management with add/edit/delete functionality using new technologies and best practices.
 
-The goal is to create POC using new technologies.
+The goal is to create POC using new technologies like angular, dot net core,serilog,swagger.
 
 Thanks for enjoying!
 
@@ -22,7 +22,8 @@ Thanks for enjoying!
 * [HTML](https://www.w3schools.com/html)
 * [CSS](https://www.w3schools.com/css)
 * [SASS](https://sass-lang.com)
-
+* [swagger 4.0.1]
+*[serilog](https://serilog.net/))
 
 ## Practices
 
@@ -96,10 +97,11 @@ Thanks for enjoying!
 <details>
 <summary>Project structure</summary>
 
-* We have consolidate one soln contact management. It contain 3 diffrent project/ class libraries.
+* We have consolidate one soln contact management. It contain 4 diffrent project/ class libraries.
   1) ContactManagement.API :- This is main restful api project. It contain required controller and related filter/configuration logic. This project have refrence of business layer to get required data. We implemented dependancy injection to create loosely coupled architecture.
   2) ContactManagement.BusinessManager :- This contain business logic related to project.This called data access layer to fetch data from database.
-  3) ContactManagement.Repository :- We have used entity framework to fetch data from database. We stored data into sql server.This project fetch data from database and passed to business layer
+  3) ContactManagement.Repository :- We have used entity framework to fetch data from database. We stored data into sql server.This project fetch data from database and passed to business layer.
+  4)ContactMangement.Logger :- This project is centralise logging system for our project. We have used serilog to log error messages and info message in database as well as in file.
 </details>
 
 
