@@ -35,7 +35,8 @@ export class ContactComponent implements OnInit {
         firstName: '',
         lastName: '',
         email: '',
-        phoneNumber: ''      
+        phoneNumber: '',
+        isActive : ''      
     }
   }
 
@@ -48,11 +49,13 @@ export class ContactComponent implements OnInit {
       this._service.addContact(saveObject).subscribe(res => {
         if (res) {
           this.getAllData();
+          alert("Contact Saved Sucessfully");
         }
       });
     } else {
       this._service.updateContact(saveObject).subscribe(res => {
         if (res) {
+          alert("Contact Saved Sucessfully"); 
           this.getAllData();
         }
       });
@@ -78,13 +81,7 @@ export class ContactComponent implements OnInit {
       this.contactsData = res
     });
    
-
-    //   this._serviceTransporter.getAllVendors().subscribe(res => {
-    //     this.vendorData = res
-    //   });
-    //   this._serviceTransporter.getAllMaterials().subscribe(res => {
-    //     this.materialsData = res
-    //   });
+;
 
   }
 
