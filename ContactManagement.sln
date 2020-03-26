@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManagement.Repositor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManagement.API", "ContactManagement.API\ContactManagement.API.csproj", "{AE65BF04-122A-4267-A0E0-8BAD846A4E58}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactMangement.Logger", "ContactMangement.Logger\ContactMangement.Logger.csproj", "{EB43E89E-C279-4979-B11A-1169DD029400}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AE65BF04-122A-4267-A0E0-8BAD846A4E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE65BF04-122A-4267-A0E0-8BAD846A4E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE65BF04-122A-4267-A0E0-8BAD846A4E58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB43E89E-C279-4979-B11A-1169DD029400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB43E89E-C279-4979-B11A-1169DD029400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB43E89E-C279-4979-B11A-1169DD029400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB43E89E-C279-4979-B11A-1169DD029400}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

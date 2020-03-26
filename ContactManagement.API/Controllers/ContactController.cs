@@ -1,4 +1,5 @@
 ﻿using ContactManagement.BusinessManager;
+using ContactMangement.Logger;
 using EmployeeManagement.Repository.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -24,6 +25,7 @@ namespace EmployeeManagement.API.Controllers
 			try
 			{
 				var contact = await contactManager.GetContacts();
+				SerilogManager.Information("getting all contact details");
 				if (contact == null)
 				{
 					return NotFound();
@@ -31,9 +33,9 @@ namespace EmployeeManagement.API.Controllers
 
 				return Ok(contact);
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
-			
+				SerilogManager.Error("Getting error in fetching contact: " + ex.Message);
 				return BadRequest();
 			}
 
@@ -52,6 +54,7 @@ namespace EmployeeManagement.API.Controllers
 
 			try
 			{
+				SerilogManager.Information("getting contact details for contact id" + contactId);
 				var contact = await contactManager.GetContact(contactId);
 
 				if (contact == null)
@@ -61,8 +64,9 @@ namespace EmployeeManagement.API.Controllers
 
 				return Ok(contact);
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
+				SerilogManager.Error("Getting error in fetching contact: " + ex.Message);
 				return BadRequest();
 			}
 		}
@@ -75,7 +79,7 @@ namespace EmployeeManagement.API.Controllers
 			{
 				try
 				{
-	
+					SerilogManager.Information("Adding contact details for contact name" + model.FirstName);
 					var contactId = await contactManager.AddContact(model);
 					if (contactId > 0)
 					{
@@ -86,9 +90,9 @@ namespace EmployeeManagement.API.Controllers
 						return NotFound();
 					}
 				}
-				catch (Exception)
+				catch (Exception ex)
 				{
-
+					SerilogManager.Error("Getting error in adding contact: " + ex.Message);
 					return BadRequest();
 				}
 
@@ -110,6 +114,7 @@ namespace EmployeeManagement.API.Controllers
 
 			try
 			{
+				SerilogManager.Information("deleting contact details for contact id" + contactId);
 				result = await contactManager.DeleteContact(contactId);
 				if (result == 0)
 				{
@@ -117,8 +122,9 @@ namespace EmployeeManagement.API.Controllers
 				}
 				return Ok();
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
+				SerilogManager.Error("Getting error in deleting contact: " + ex.Message);
 
 				return BadRequest();
 			}
@@ -133,12 +139,14 @@ namespace EmployeeManagement.API.Controllers
 			{
 				try
 				{
+					SerilogManager.Information("Updating contact details for contact id" + model.ContactId);
 					await contactManager.UpdateContact(model);
 
-					return Ok();
+					return Ok(model);
 				}
 				catch (Exception ex)
 				{
+					SerilogManager.Error("Getting error in updating contact: " + ex.Message);
 					if (ex.GetType().FullName == "Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException")
 					{
 						return NotFound();
