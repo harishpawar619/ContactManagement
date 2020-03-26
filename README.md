@@ -93,7 +93,14 @@ Thanks for enjoying!
 
 
 </details>
+<details>
+<summary>Project structure</summary>
 
+* We have consolidate one soln contact management. It contain 3 diffrent project/ class libraries.
+  1) ContactManagement.API :- This is main restful api project. It contain required controller and related filter/configuration logic. This project have refrence of business layer to get required data. We implemented dependancy injection to create loosely coupled architecture.
+  2) ContactManagement.BusinessManager :- This contain business logic related to project.This called data access layer to fetch data from database.
+  3) ContactManagement.Repository :- We have used entity framework to fetch data from database. We stored data into sql server.This project fetch data from database and passed to business layer
+</details>
 
 
 
